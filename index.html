@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Wizard mit showIf – MOCK (getrennte Dateien)</title>
+  <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+  <h2>Wizard mit showIf (Regeln via MOCK-API + POST)</h2>
+
+  <div class="row">
+    <button class="btn" id="reloadRulesV1">Regeln laden v1</button>
+    <button class="btn" id="reloadRulesV2">Regeln laden v2</button>
+    <span id="rulesInfo"></span>
+  </div>
+
+  <selection class="viewport">
+
+    <!-- START: Panels -->
+    <form id="wizard-form" novalidate> 
+        <article id="panel-1" class="card" role="tabpanel">
+            <h2>Panel 1</h2>
+            <p>Panel 1 Sachen...</p>
+        </article>
+        <article id="panel-2" class="card" role="tabpanel" hidden>
+            <h2>Panel 2</h2>
+            <p>Panel 2 Sachen...</p>
+        </article>
+        <article id="panel-3" class="card" role="tabpanel" hidden>
+            <h2>Panel 3</h2>
+            <p>Panel 3 Sachen...</p>
+        </article>
+
+    </form>
+    <!-- END: Panels -->
+    <div class="nav">
+        <button class="btn" id="prev" type="button" title="Alt+Links" data-i18n="nav.prev">Zurück</button>
+        <button class="btn primary" id="next" type="button" title="Alt+Rechts" data-i18n="nav.next">Weiter</button>
+    </div>
+  </selection>
+
+  <!-- Alter Code ... -->
+
+  <div class="card" id="card-plan">
+    <h3>Plan wählen</h3>
+    <label><input type="radio" name="plan" value="basic"> Basic</label>
+    <label><input type="radio" name="plan" value="pro"> Pro</label>
+    <label><input type="radio" name="plan" value="business"> Business</label>
+  </div>
+
+  <div class="card hidden" id="card-company">
+    <h3>Firma</h3>
+    <label>Firmenname <input type="text" id="company.name" placeholder="Meine GmbH"></label>
+  </div>
+
+  <div class="card hidden" id="card-addons">
+    <h3>Add-ons</h3>
+    <label><input type="checkbox" id="addons.backup"> Tägliches Backup</label>
+  </div>
+
+  <div class="card hidden" id="card-payment">
+    <h3>Zahlung</h3>
+    <label>Karte (letzte 4) <input type="text" id="payment.cardLast4" placeholder="1234"></label>
+  </div>
+
+  <pre id="debug"></pre>
+
+  <!-- Zuerst die MOCK-API laden (patcht fetch), dann die App-Logik -->
+  <script type="module" src="./mock.js"></script>
+  <script type="module" src="./form.js"></script>
+</body>
+</html>

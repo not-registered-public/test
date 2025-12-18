@@ -1,0 +1,10 @@
+body { font-family: system-ui, sans-serif; line-height: 1.35; margin: 20px; }
+.card { border: 1px solid #ddd; padding: 12px; margin: 8px 0; border-radius: 8px; }
+.hidden { display: none; }
+.row { margin: 6px 0; }
+.btn { padding: 6px 10px; border: 1px solid #999; border-radius: 6px; background: #fafafa; cursor: pointer; }
+.btn + .btn { margin-left: 6px; }
+pre { background: #f7f7f7; padding: 8px; border-radius: 6px; overflow: auto; }
+h2 { margin-top: 0; }
+label { margin-right: 8px; }
+input[type="text"] { padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; }
